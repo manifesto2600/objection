@@ -23,27 +23,33 @@ const objectionList = document.getElementById("objection-list");
 const searchInput = document.getElementById("search");
 
 function displayObjections(filter = "") {
-    objectionList.innerHTML = "";
+    objectionList.innerHTML = ""; // Clear previous list
+
     objections
         .filter(item => item.objection.toLowerCase().includes(filter.toLowerCase()))
         .forEach((item, index) => {
             const li = document.createElement("li");
             li.innerHTML = `<strong>${item.objection}</strong>`;
-            li.addEventListener("click", () => toggleRebuttal(index, item.rebuttal, item.optional));
-            objectionList.appendChild(li);
+            li.addEventListener("click", () => toggleRebuttal(index));
 
+            // Create rebuttal div inside the li
             const rebuttalDiv = document.createElement("div");
             rebuttalDiv.className = "rebuttal";
             rebuttalDiv.id = `rebuttal-${index}`;
+            rebuttalDiv.style.display = "none"; // Hide by default
             rebuttalDiv.innerHTML = `<p>${item.rebuttal}</p>` + (item.optional ? `<p class="optional">${item.optional}</p>` : "");
-            objectionList.appendChild(rebuttalDiv);
+
+            li.appendChild(rebuttalDiv); // Append rebuttal inside li
+            objectionList.appendChild(li);
         });
 }
 
 // Toggle rebuttal display
 function toggleRebuttal(index) {
     const rebuttal = document.getElementById(`rebuttal-${index}`);
-    rebuttal.style.display = rebuttal.style.display === "block" ? "none" : "block";
+    if (rebuttal) {
+        rebuttal.style.display = rebuttal.style.display === "block" ? "none" : "block";
+    }
 }
 
 // Search function
