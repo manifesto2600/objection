@@ -1,0 +1,49 @@
+.container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background-color: #f9f9f9;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.objection {
+  font-weight: bold;
+}
+
+.rebuttal-container {
+  margin-top: 10px;
+}
+
+.optional {
+  color: gray;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
